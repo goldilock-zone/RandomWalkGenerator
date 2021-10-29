@@ -31,16 +31,16 @@ def random_walk(*,initial_state, volatility, decimal_places, number_of_elements,
 def generateRandomWalk(*, initial_state, divisions_of_returns, size_of_list):
     end_out_list = []
     for i in divisions_of_returns:
-        out_list = random_walk(initial_state = initial_state, volatility = 4, decimal_places = 2, number_of_elements = size_of_list, return_target = i)
+        out_list = random_walk(initial_state = initial_state, volatility = 2, decimal_places = 2, number_of_elements = size_of_list, return_target = i)
         end_out_list.extend(out_list)
         initial_state = end_out_list[-1]
         print(initial_state)
 
     return end_out_list
 
-stock_price_array = generateRandomWalk(initial_state = 100, divisions_of_returns=[10,10,-2,12,24,-10, -12, -9], size_of_list = 252)
+stock_price_array = generateRandomWalk(initial_state = 100, divisions_of_returns=[4,7,5,8,4,-3,-5,0,-7,-2,5], size_of_list = 126)
 print(stock_price_array)
 print(len(stock_price_array))
 
-plt.plot(stock_price_array)
+plt.plot(stock_price_array, color = "green")
 plt.show()
